@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Countdown to NIS2</title>
+	<style>
+		body {
+			background-color: gray;
+			color: black;
+			font-size: 3em;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<script>
+		// Set the date we're counting down to
+		var countDownDate = new Date("Oct 18, 2024 00:00:00").getTime();
+
+		// Update the count down every 1 second
+		var x = setInterval(function() {
+
+			// Get today's date and time
+			var now = new Date().getTime();
+
+			// Find the distance between now and the count down date
+			var distance = countDownDate - now;
+
+			// Time calculations for days, hours, minutes and seconds
+			var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+			var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+			// Display the result in the element with id="countdown"
+			document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+			+ minutes + "m " + seconds + "s ";
+
+			// If the count down is finished, write some text
+			if (distance < 0) {
+				clearInterval(x);
+				document.getElementById("countdown").innerHTML = "NIS2 is here. Are you ready?";
+			}
+		}, 1000);
+	</script>
+
+	<h1>Time left to get ready for NIS2</h1>
+	<div id="countdown"></div>
+
+	<p>Learn more about NIS2:</p>
+	<ul>
+		<li><a href="https://github.com/thesilo/NIS2/wiki">NIS2 GitHub Wiki</a></li>
+	</ul>
+</body>
+</html>
